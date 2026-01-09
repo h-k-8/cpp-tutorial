@@ -32,5 +32,4 @@ jobs:
     - name: Build Stage3
       run: |
         bazel build //main:hello-world
-        ./bazel-bin/main/hello-world
-      
+        ./bazel-bin/main/hello-world  
