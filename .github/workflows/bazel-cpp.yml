@@ -1,0 +1,36 @@
+name: Bazel C++ tutorial
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+    #stage 1
+    - name: Build Stage1
+      run: |
+        cd ~/examples/cpp-tutorial/stage1
+        bazel build //main:hello-world
+        ./bazel-bin/main/hello-world
+
+    #stage 2
+    - name: Build Stage2
+      run: |
+        cd ~examples/cpp-tutorials/stage2
+        bazel build //main:hello-world
+        ./bazel-bin/main/hello-world
+
+    #stage 3
+    - name: Build Stage3
+      run: |
+        bazel build //main:hello-world
+        ./bazel-bin/main/hello-world
+      
