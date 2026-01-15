@@ -1,0 +1,10 @@
+cc_test(
+    name = "hello_test",
+    srcs = ["hello-test.cc"],
+    deps = [
+        "//main:hello_greet",
+	"@googletest//:gtest_main",
+    ],
+    size = "small",
+)
+
