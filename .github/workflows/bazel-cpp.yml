@@ -33,4 +33,19 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/stage3
           bazel build //main:hello-world
-          ./bazel-bin/main/hello-world  
+          ./bazel-bin/main/hello-world 
+
+      # stage 5
+      - name: Build & Test Stage5
+        run: |
+          cd $GITHUB_WORKSPACE/stage5
+          bazel test //test:hello_test
+
+      #Summary
+      - name: Write Summary
+        if always()
+        run: |
+          echo "## Bazel CI Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Build: completed" >> $GITHUB_STEP_SUMMARY
+          echo "- Tests: executed" >> $GITHUB_STEP_SUMMARY
+ 
