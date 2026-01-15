@@ -43,7 +43,7 @@ jobs:
 
       #Summary
       - name: Write Summary
-        if always()
+        if: always()
         run: |
           echo "## Bazel CI Summary" >> $GITHUB_STEP_SUMMARY
           echo "- Build: completed" >> $GITHUB_STEP_SUMMARY
